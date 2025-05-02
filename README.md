@@ -31,8 +31,8 @@ This project explores fine-tuning automatic speech recognition (ASR) models on n
 - **Team Leader**: [Sara Ghanem Alqahtani ] - [2210002845]  
 - **Team Member 2**: [Njood Tawfiq Alrushaid] - [2210003029]  
 - **Team Member 3**: [Atheer Abdullah Alkhudair] - [2210003371]
-- **Team Member 3**: [Sarah Mohammed Alsulaim] - [2210003352 ]
--  **Team Member 3**: [Shahad Khalid Alsadah ] - [2210003178]  
+- **Team Member 4**: [Sarah Mohammed Alsulaim] - [2210003352 ]
+-  **Team Member 5**: [Shahad Khalid Alsadah ] - [2210003178]  
 - **Group Number**: [6]
 
 ---
