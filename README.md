@@ -8,6 +8,7 @@
 - [Overview](#overview)
 - [Team Information](#team-information)
 - [Learning Outcomes](#learning-outcomes)
+- [Introduction](#introduction)
 - [Project Objectives](#project-objectives)
 - [Literature Review](#literature-review)
 - [Methodology](#methodology)
@@ -45,8 +46,11 @@ This project explores fine-tuning automatic speech recognition (ASR) models on n
 ---
 ## Introduction 
 Generative AI has opened new possibilities in speech processing by enabling systems to learn from patterns and adapt to diverse real-world inputs. In this project, we apply generative principles to fine-tune Automatic Speech Recognition (ASR) models for improved recognition of non-native Arabic speech. Rather than relying solely on native speech data, we adapt pre-trained models using domain-specific samples that reflect common mispronunciations. This allows the ASR system to better handle spontaneous and imperfect speech from learners of Arabic.
+
 Arabic holds a unique cultural and spiritual significance as the language of the Quran and a symbol of unity for millions of Muslims worldwide. Despite its global importance, Arabic is considered one of the most difficult languages to learn due to its rich phonetic system particularly emphatic, uvular, and pharyngeal sounds which often lead to mispronunciations that change meaning. This challenge is intensified by the lack of adaptive tools that address pronunciation variation, especially in real-time interactions. Traditional ASR models, which are typically trained on native speaker data, struggle with these errors and often yield inaccurate transcriptions for non-native speakers.
+
 To bridge this gap, our project focuses on fine-tuning ASR models to improve robustness and accuracy for non-native Arabic speech. By training the model to recognize common phonetic variations, we aim to enhance its performance across different speaker profiles. This effort supports the goals of Saudi Vision 2030, which emphasizes cultural accessibility and the promotion of Arabic as a global language. Our objectives include reducing word and character error rates (WER/CER), increasing the inclusivity of ASR systems, and enabling clearer communication for learners and visitors in Arabic-speaking environments.
+
 
 ---
 
@@ -58,13 +62,19 @@ To bridge this gap, our project focuses on fine-tuning ASR models to improve rob
 ---
 
 ## Literature Review
-Automatic Speech Recognition (ASR) systems have advanced significantly with the integration of deep learning and large-scale datasets. However, their performance still drops when encountering non-native speech, which often involves unfamiliar accents, phoneme substitutions, and pronunciation errors. This section reviews recent approaches that address these challenges by using fine-tuning, augmentation, or alignment-free methods to enhance recognition accuracy for diverse speakers.
-Korzekwa et al. proposed the use of generative techniques—such as phoneme-to-phoneme (P2P), text-to-speech (T2S), and speech-to-speech (S2S) conversions—to simulate non-native pronunciation errors in English. These synthetic datasets improved the detection of lexical stress and pronunciation issues, with the S2S model achieving a 41% AUC improvement, highlighting the effectiveness of generative augmentation in capturing real learner variability.
+ASR systems have advanced significantly with the integration of deep learning and large-scale datasets. However, their performance still drops when encountering non-native speech, which often involves unfamiliar accents, phoneme substitutions, and pronunciation errors. This section reviews recent approaches that address these challenges by using fine-tuning, augmentation, or alignment-free methods to enhance recognition accuracy for diverse speakers.
+
+A study by Korzekwa et al. proposed the use of generative techniques—such as phoneme-to-phoneme (P2P), text-to-speech (T2S), and speech-to-speech (S2S) conversions to simulate non-native pronunciation errors in English. These synthetic datasets improved the detection of lexical stress and pronunciation issues, with the S2S model achieving a 41% AUC improvement, highlighting the effectiveness of generative augmentation in capturing real learner variability.
+
 Anantha et al. introduced DTW-SiameseNet, a dual-model approach that aligns user speech with reference pronunciations using Dynamic Time Warping (DTW) and a Siamese neural network. This model eliminated the need for dictionary updates and showed improved performance in detecting mispronunciations across multiple languages, with about 6% higher accuracy than traditional alignment-based methods.
-Liao et al. tackled ASR output errors by proposing ASR Post-processing for Readability (APR). Their system leveraged Transformer-based models, including UniLM and RoBERTa, to clean ASR transcriptions without altering the speaker’s meaning. The results demonstrated significant improvements in BLEU and GLEU scores, suggesting these models can effectively handle disfluencies and misrecognitions in real-world speech.
-Alkhamissi and Shoufan (2022) explored ASR performance on Arabic speech using deep learning models trained on diverse dialects. Their work revealed that even state-of-the-art ASR models underperform on certain Arabic phonemes, especially those with pharyngeal or emphatic features common in non-native speech. Their results emphasized the need for domain-adapted Arabic ASR models that account for dialectal and accentual variation.
+
+Another work by Liao et al. tackled ASR output errors by proposing ASR Post-processing for Readability (APR). Their system leveraged Transformer-based models, including UniLM and RoBERTa, to clean ASR transcriptions without altering the speaker’s meaning. The results demonstrated significant improvements in BLEU and GLEU scores, suggesting these models can effectively handle disfluencies and misrecognitions in real-world speech.
+
+According to a paper by Alkhamissi and Shoufan (2022) explored ASR performance on Arabic speech using deep learning models trained on diverse dialects. Their work revealed that even state-of-the-art ASR models underperform on certain Arabic phonemes, especially those with pharyngeal or emphatic features common in non-native speech. Their results emphasized the need for domain-adapted Arabic ASR models that account for dialectal and accentual variation.
+
 Lastly, Radfar et al. applied fine-tuning techniques to OpenAI’s Whisper model, showing that even small-scale updates using accent-specific data could significantly reduce Word Error Rates (WER) on non-native speech. Their study confirms that pre-trained models can generalize better when adapted to pronunciation patterns that deviate from native norms.
-Despite these advancements, a clear research gap remains for Arabic-specific ASR systems tailored to non-native speakers, particularly for handling spontaneous, unscripted input and phonetic irregularities. Our project aims to address this by fine-tuning ASR models on Arabic speech that reflects realistic pronunciation errors, focusing on robustness and inclusivity in language learning and communication.
+
+Despite these advancements, a clear research gap remains for Arabic specific ASR systems tailored to non-native speakers, particularly for handling spontaneous, unscripted input and phonetic irregularities. Our project aims to address this by fine-tuning ASR models on Arabic speech that reflects realistic pronunciation errors, focusing on robustness and inclusivity in language learning and communication.
 
 
 ---
