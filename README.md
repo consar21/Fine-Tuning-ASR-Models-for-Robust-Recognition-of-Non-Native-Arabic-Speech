@@ -70,22 +70,57 @@ Wav2Vec 2.0 XLS-R 300M is a multilingual extension of the Wav2Vec 2.0 model, spe
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/883ef391-a63d-4104-9175-4c365a3c3e8c" />
 
+*Figure 1 overview of the Wav2Vec 2.0 XLS-R 300M pipeline [3] .*
 
   -  Whisper Model
     
 Whisper is an advanced automatic speech recognition (ASR) system developed by OpenAI, designed to handle both multilingual and multitask speech processing. Unlike conventional ASR models that need significant fine-tuning on specific datasets, Whisper is trained on a massive dataset comprising 680,000 hours of multilingual and multitask speech data. This broad training allows the model to perform effectively in zero-shot scenarios where it can carry out tasks without prior task specific training. Leveraging its multilingual training, Whisper can transcribe or translate previously unseen languages. It also demonstrates strong resilience to variations in accents, background noise, and spontaneous speech, making it highly versatile across different audio environments [4].
 
 ### Implementation Framework
-- Framework: Hugging Face Transformers + PyTorch
-- Hardware: [e.g., Colab Pro, 16GB RAM, GPU Tesla T4]
-- Tools: torchaudio, datasets, WER evaluation scripts
+-  Wave2vec:
+  
+  The model was implemented in Google Colab using Python along with the Hugging Face Transformers library. Fine-tuning of the Wav2Vec2.0 XLS-R 300M model was carried out on a custom dataset, utilizing a 16 kHz audio processing pipeline and a custom data collator for dynamic input padding. Training was handled using the Trainer API, configured with a batch size of 16, a learning rate of 3e-4, and a total of 30 training epochs. To optimize GPU usage, techniques such as gradient accumulation, mixed-precision training (fp16), and gradient checkpointing were employed. Model performance was assessed using the Word Error Rate (WER), calculated with the help of the jiwer and evaluate libraries.
+
+-  Whisper :
+
+  The Whisper-based ASR system was developed using Python in the Google Colab environment, leveraging the Hugging Face Transformers library. The model openai/whisper-small was adapted for Arabic speech transcription and fine-tuned using the L2-KSU dataset. The implementation utilized the WhisperProcessor, WhisperTokenizer, and WhisperFeatureExtractor to process 16 kHz mono audio inputs and prepare them for model consumption. Training was conducted using the Seq2SeqTrainer API with key settings including a batch size of 16, a learning rate of 3e-4, and 30 training epochs. To optimize performance and resource efficiency, techniques such as mixed-precision training (fp16), gradient accumulation, and gradient checkpointing were employed. Model evaluation was based on Word Error Rate (WER), with regular evaluations and checkpoint saving every 500 steps. The final model was validated through Hugging Face’s ASR pipeline to assess its accuracy on new audio samples.
+
+
 
 ### Dataset Description
-- Name: [e.g., ArabicSpeechCorpus, Custom Dataset]
-- Size: [e.g., 3,000 samples, 10 hours]
-- Format: WAV + text
-- Preprocessing: Resampling, normalization, silence trimming
-- Train/Val/Test Split: [e.g., 80/10/10]
+- L2-KSU Dataset 
+
+  In this study, the L2-KSU dataset served as the primary resource for training and evaluating the ASR models. It contains 4086 audio recordings totaling 6 hours and 6 minutes, each accompanied by labeled transcriptions that include both standard and mispronounced forms. The dataset was collected from 80 adult speakers , 40 native and 40 non-native Arabic speakers with an equal gender distribution. The audio content comprises Quranic verses and Modern Standard Arabic (MSA) sentences, with a focus on phonetically challenging sounds for non-native speakers, such as /ʕ/ (ﻉ) and /ħ/ (ﺡ), to help improve the model’s sensitivity to pronunciation errors. Following the methodology of [5], the data was split by speaker: 60 participants were used for training (including both native and non-native speakers), while the remaining 20 non-native speakers were assigned to the test set. This speaker-based division was designed to minimize speaker-specific bias and evaluate model performance on unfamiliar voices, enhancing the system’s robustness and generalizability. Further details of this split are provided in Table 2.
+
+**Table 1.** L2-KSU Dataset Description
+| **Field**                 | **Description**                                                                 |
+|--------------------------|---------------------------------------------------------------------------------|
+| Language                 | Arabic                                                                          |
+| Speaker                  | 40 native Arabic, 40 African L1 (learn Arabic)                                  |
+| Non-Native Nationalities | West and Central African countries                                              |
+| Level                    | Advanced for native speakers <br> Beginner to advanced learners for non-native speakers |
+| Data                     | Read sentences                                                                  |
+| Size                     | 4086 utterances, 6 h, and 6 min                                                 |
+| Age                      | Adult                                                                           |
+| Labelling                | Arabic script (utf-8)                                                           |
+
+
+**Table 2.** Details of the L2-KSU Dataset Setup
+
+| **Subset** | **No. of Speakers** | **Speaker Type** | **Utterances** | **Hours**    |
+|------------|---------------------|------------------|----------------|--------------|
+| Train      | 60                  | N + NN           | 3273           | 4 h. 45 min  |
+| Test       | 20                  | NN               | 813            | 1 h. 22 min  |
+
+
+
+
+ - Data Preprocessing
+
+
+   As part of the dataset preparation process outlined in [5], audio recordings were enhanced through noise and silence removal using the PRAAT software, which significantly improved signal clarity particularly by eliminating low-frequency background noise. This refinement helped make phonetic features more distinguishable, thereby improving the quality of data for training speech recognition models. To ensure compatibility with ASR systems, stereo audio files were converted to mono and resampled at 16 kHz. For feature extraction, audio waveforms were transformed into log-mel spectrograms by first generating spectrograms and then applying Mel-scale filters, followed by a logarithmic transformation to reduce dynamic range. These final features effectively capture key time frequency patterns such as pitch and phoneme structures, which are essential for accurate speech recognition and linguistic analysis.
+
+
 
 ---
 
