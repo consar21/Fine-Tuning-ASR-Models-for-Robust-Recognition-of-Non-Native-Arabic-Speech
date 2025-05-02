@@ -76,7 +76,7 @@ Lastly, Radfar et al. applied fine-tuning techniques to OpenAI’s Whisper model
 
 Despite these advancements, a clear research gap remains for Arabic specific ASR systems tailored to non-native speakers, particularly for handling spontaneous, unscripted input and phonetic irregularities. Our project aims to address this by fine-tuning ASR models on Arabic speech that reflects realistic pronunciation errors, focusing on robustness and inclusivity in language learning and communication.
 
-### 📚 Table 1: Literature Review Summary – ASR Models and Non-Native Speech
+###  Table 1: Literature Review Summary – ASR Models and Non-Native Speech
 
 | Study                  | Focus                                                                                         | Key Contribution                                                                                   |
 |------------------------|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -120,9 +120,9 @@ Whisper is an advanced automatic speech recognition (ASR) system developed by Op
 ### Dataset Description
 - L2-KSU Dataset 
 
-  In this study, the L2-KSU dataset served as the primary resource for training and evaluating the ASR models. It contains 4086 audio recordings totaling 6 hours and 6 minutes, each accompanied by labeled transcriptions that include both standard and mispronounced forms. The dataset was collected from 80 adult speakers , 40 native and 40 non-native Arabic speakers with an equal gender distribution. The audio content comprises Quranic verses and Modern Standard Arabic (MSA) sentences, with a focus on phonetically challenging sounds for non-native speakers, such as /ʕ/ (ﻉ) and /ħ/ (ﺡ), to help improve the model’s sensitivity to pronunciation errors. Following the methodology of [5], the data was split by speaker: 60 participants were used for training (including both native and non-native speakers), while the remaining 20 non-native speakers were assigned to the test set. This speaker-based division was designed to minimize speaker-specific bias and evaluate model performance on unfamiliar voices, enhancing the system’s robustness and generalizability. Further details of this split are provided in Table 2.
+  In this study, the L2-KSU dataset served as the primary resource for training and evaluating the ASR models. It contains 4086 audio recordings totaling 6 hours and 6 minutes, each accompanied by labeled transcriptions that include both standard and mispronounced forms. The dataset was collected from 80 adult speakers , 40 native and 40 non-native Arabic speakers with an equal gender distribution. The audio content comprises Quranic verses and Modern Standard Arabic (MSA) sentences, with a focus on phonetically challenging sounds for non-native speakers, such as /ʕ/ (ﻉ) and /ħ/ (ﺡ), to help improve the model’s sensitivity to pronunciation errors. Following the methodology of [5], the data was split by speaker: 60 participants were used for training (including both native and non-native speakers), while the remaining 20 non-native speakers were assigned to the test set. This speaker-based division was designed to minimize speaker-specific bias and evaluate model performance on unfamiliar voices, enhancing the system’s robustness and generalizability. Further details of this split are provided in Table 3.
 
-**Table 1.** L2-KSU Dataset Description
+**Table 2.** L2-KSU Dataset Description
 | **Field**                 | **Description**                                                                 |
 |--------------------------|---------------------------------------------------------------------------------|
 | Language                 | Arabic                                                                          |
@@ -135,7 +135,7 @@ Whisper is an advanced automatic speech recognition (ASR) system developed by Op
 | Labelling                | Arabic script (utf-8)                                                           |
 
 
-**Table 2.** Details of the L2-KSU Dataset Setup
+**Table 3.** Details of the L2-KSU Dataset Setup
 
 | **Subset** | **No. of Speakers** | **Speaker Type** | **Utterances** | **Hours**    |
 |------------|---------------------|------------------|----------------|--------------|
