@@ -205,5 +205,16 @@ The best-performing configurations from each ablation were selected for the fina
 - Future directions: code-switching handling, speaker adaptation
 
 ---
+## References
+[1] NeuroSys, Wav2vec 2.0: A framework for self-supervised learning of speech repre-sentations, 2023. [Online]. Available: https://neurosys.com/blog/wav2vec-2-0-framework.
+
+[2] A. Baevski, Y. Zhou, A. Mohamed, and M. Auli, “Wav2vec 2.0: A framework for self-supervised learning of speech representations,” arXiv preprint arXiv:2006.11477, 2020. 
+[Online]. Available: https://arxiv.org/abs/2006.11477.
+
+[3] F. AI, Facebook/wav2vec2-xls-r-300m, 2023. [Online]. Available: https://huggingface.co/facebook/wav2vec2-xls-r-300m.
+
+[4] [Online]. Available: https://openai.com/index/whisper.
+
+[5] N. Alrashoudi, H. Al-Khalifa, and Y. Alotaibi, “Improving mispronunciation detec-tion and diagnosis for non-native learners of the arabic language,” Discover Com-puting, vol. 28, no. 1, p. 1, 2025.
 
 
