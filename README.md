@@ -80,11 +80,57 @@ This project explores fine-tuning automatic speech recognition (ASR) models on n
 ---
 
 ## Experimental Design
-- Hyperparameters: learning rate, batch size, epochs, optimizer
-- Baseline WER before fine-tuning
-- Metrics used: WER, CER
-- Ablation study: Layer freezing, different learning rates
-- Computational constraints: GPU memory usage, training time
+
+This section outlines the training methodology, manual fine-tuning process, evaluation metrics, and baseline comparisons for our ASR models fine-tuned on native Arabic speech data. Two architectures were explored: Whisper-small and two versions of Wav2Vec2.
+
+### 1. Training Methodology
+We adopted a manual fine-tuning approach where model training was conducted iteratively based on intermediate results. Each model was fine-tuned using the L1-KSU speech datasets, and evaluated using Word Error Rate (WER).
+
+Training steps included:
+- Audio normalization and resampling to 16kHz
+- Manual model checkpoint tracking across different training stages
+- Validation-based tuning with iterative hyperparameter adjustments
+
+All experiments were conducted using PyTorch and Hugging Face Transformers on GPU-enabled environments.
+
+### 2. Hyperparameter Selection and Tuning
+Hyperparameters were selected based on validation WER and adjusted manually. The best-performing configurations for each model were:
+
+| Model Variant                | Epochs | Batch Size | Learning Rate | Notes                          |
+|-----------------------------|--------|------------|----------------|--------------------------------|
+| Whisper-small               | 30     | 16         | 3e-4           |  
+| AndrewMcDowell/wav2vec2-xls-r-300m-arabic         | 8      | 4          | 2e-5           |                
+| phantomcoder1996/wav2vec2-large-xls-r-300m-arabic             | 6      | 8          | 1e-5           |              
+
+> Note: All experiments included logging of **training loss** and **validation WER** for early stopping decisions.
+
+### 3. Baseline Models for Comparison
+We used the original pre-trained versions as our baselines (no fine-tuning applied). The table below highlights the best result for each model after fine-tuning.
+
+| Model Name                        | Baseline WER | Fine-Tuned WER |
+|----------------------------------|--------------|----------------|
+| Whisper-small                    | 51.46%       | 0.37%         |
+| AndrewMcDowell/wav2vec2-xls-r-300m-arabic             | 72.39%      | 2.52%        |
+| phantomcoder1996/wav2vec2-large-xls-r-300m-arabic            | 82.60%       | 3.89%         |
+
+This comparison quantifies the improvement achieved through task-specific training.
+
+### 4. Evaluation Metrics
+The evaluation was based exclusively on:
+- **Word Error Rate (WER)**: Primary metric to evaluate transcription accuracy.
+- **Training Loss**: Monitored throughout to avoid overfitting and guide fine-tuning decisions.
+
+Evaluation was performed on a held-out test set of native Arabic audio samples using Hugging Face’s `evaluate` and custom scoring scripts.
+
+### 5. Ablation Studies Design
+We conducted multiple experiments to understand the impact of different training configurations, including:
+
+- **Model Variant Comparison**: Whisper-small vs two Wav2Vec2 versions
+- **Layer Freezing**: Tested freezing encoder layers vs full fine-tuning
+- **Learning Rate Impact**: Compared high vs low learning rates
+- **Dataset Subsampling**: Fine-tuned on reduced data sizes to observe WER drop
+
+The best-performing configurations from each ablation were selected for the final comparison table above.
 
 ---
 
