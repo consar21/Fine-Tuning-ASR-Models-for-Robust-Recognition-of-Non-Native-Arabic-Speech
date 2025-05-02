@@ -76,6 +76,15 @@ Lastly, Radfar et al. applied fine-tuning techniques to OpenAI’s Whisper model
 
 Despite these advancements, a clear research gap remains for Arabic specific ASR systems tailored to non-native speakers, particularly for handling spontaneous, unscripted input and phonetic irregularities. Our project aims to address this by fine-tuning ASR models on Arabic speech that reflects realistic pronunciation errors, focusing on robustness and inclusivity in language learning and communication.
 
+### 📚 Table 1: Literature Review Summary – ASR Models and Non-Native Speech
+
+| Study                  | Focus                                                                                         | Key Contribution                                                                                   |
+|------------------------|-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Korzekwa et al. (2023) | Generative data augmentation (P2P, S2S) for non-native speech error simulation                | 41% AUC improvement in error detection using synthetic non-native data                             |
+| Anantha et al. (2021)  | DTW-SiameseNet for pronunciation error detection without reference dictionaries              | 6% improvement in pronunciation accuracy with language-agnostic detection                          |
+| Liao et al. (2022)     | Transformer-based ASR post-processing for improving transcript readability                    | Enhanced BLEU/GLEU scores by correcting grammar/disfluency in ASR output                           |
+| Waheed et al. (2023)   | Dialect-aware Arabic ASR trained on diverse accents and phonemes                              | Improved Arabic ASR performance across dialects and speaker variability                            |
+| Gandhi (2022)          | Fine-tuning Whisper for multilingual ASR including non-native accents                         | Reduced WER on accented speech using low-resource fine-tuning of Whisper                           |
 
 ---
 
