@@ -61,9 +61,20 @@ This project explores fine-tuning automatic speech recognition (ASR) models on n
 ## Methodology
 
 ### Model Architecture
-- Pre-trained model: [Name of the model, e.g., Whisper-large]
-- Fine-tuning layers: [e.g., last transformer blocks only]
-- Loss function: [e.g., CTC or seq2seq loss]
+- Wave2vec Model
+  - Wav2Vec 2.0
+is a cutting-edge self-supervised model developed by Facebook AI for automatic speech recognition (ASR) tasks. It processes raw audio waveforms to extract rich speech features, significantly reducing the need for extensive labeled datasets. The model architecture is composed of two main components: a feature encoder that converts raw audio into latent representations, and a transformer based context network that models long range dependencies within the speech signal [1].
+
+  - Wav2Vec 2.0 XLSR-300M
+Wav2Vec 2.0 XLS-R 300M is a multilingual extension of the Wav2Vec 2.0 model, specifically built to perform well across a wide range of languages. Developed by Facebook AI, it contains around 300 million parameters and is trained on an extensive multilingual dataset. The model employs self-supervised learning on raw audio to extract robust speech features through a feature encoder and a transformer based context network. Its architecture is fine-tuned to deliver accurate speech recognition and transcription in various languages[2]. 
+
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/883ef391-a63d-4104-9175-4c365a3c3e8c" />
+
+
+
+  -  Whisper Model
+    
+Whisper is an advanced automatic speech recognition (ASR) system developed by OpenAI, designed to handle both multilingual and multitask speech processing. Unlike conventional ASR models that need significant fine-tuning on specific datasets, Whisper is trained on a massive dataset comprising 680,000 hours of multilingual and multitask speech data. This broad training allows the model to perform effectively in zero-shot scenarios where it can carry out tasks without prior task specific training. Leveraging its multilingual training, Whisper can transcribe or translate previously unseen languages. It also demonstrates strong resilience to variations in accents, background noise, and spontaneous speech, making it highly versatile across different audio environments [4].
 
 ### Implementation Framework
 - Framework: Hugging Face Transformers + PyTorch
