@@ -247,4 +247,20 @@ The best-performing configurations from each ablation were selected for the fina
 
 [5] N. Alrashoudi, H. Al-Khalifa, and Y. Alotaibi, “Improving mispronunciation detec-tion and diagnosis for non-native learners of the arabic language,” Discover Com-puting, vol. 28, no. 1, p. 1, 2025.
 
+[6] Muslim population by country 2024, World Population Review. [Online]. Available: https://worldpopulationreview.com/country-rankings/muslim-population-by-country
 
+[7] Saudi Vision 2030. [Online]. Available: https://www.vision2030.gov.sa/
+
+[8] A. Al Hindi, M. Alsulaiman, G. Muhammad, and S. Al-Kahtani, “Automatic pronunciation error detection of nonnative Arabic speech,” in Proc. 2014 IEEE/ACS 11th Int. Conf. Comput. Syst. Appl. (AICCSA), Doha, Qatar, Nov. 2014, pp. 190–197. doi: 10.1109/AICCSA.2014.7073198
+
+[9] W. Sun, “The impact of automatic speech recognition technology on second language pronunciation and speaking skills of EFL learners: A mixed methods investigation,” Front. Psychol., vol. 14, Jul. 2023. [Online]. Available: https://www.frontiersin.org/articles/10.3389/fpsyg.2023.1210187/full
+
+[10] D. Korzekwa, J. Lorenzo-Trueba, T. Drugman, and B. Kostek, “Computer-assisted pronunciation training—Speech synthesis is almost all you need,” Speech Commun., vol. 142, pp. 22–33, 2022. doi: 10.1016/j.specom.2022.06.003. [Online]. Available: https://www.sciencedirect.com/science/article/pii/S0167639322000863
+
+[11] R. Anantha, K. Bhasin, D. de la Parra Aguilar, P. Vashisht, B. Williamson, and S. Chappidi, “DTW-SiameseNet: Dynamic time warped Siamese network for mispronunciation detection and correction,” arXiv preprint, arXiv:2303.00171 [cs.LG], Mar. 2023. [Online]. Available: https://arxiv.org/abs/2303.00171
+
+[12] J. Liao, S. Eskimez, L. Lu, et al., “Improving readability for automatic speech recognition transcription,” ACM Trans. Asian Low-Resour. Lang. Inf. Process., vol. 22, no. 5, May 2023. doi: 10.1145/3557894. [Online]. Available: https://doi.org/10.1145/3557894
+
+[13] A. Waheed, B. Talafha, P. Sullivan, A. Elmadany, and M. Abdul-Mageed, “VoxArabica: A robust dialect-aware Arabic speech recognition system,” in Proc. ArabicNLP 2023 – First Arabic Natural Language Processing Conference, Dec. 2023, pp. 441–449. [Online]. Available: https://www.researchgate.net/publication/376393146_VoxArabica_A_Robust_Dialect-Aware_Arabic_Speech_Recognition_System
+
+[14] S. Gandhi, “Fine-tune Whisper for multilingual ASR with Transformers,” Hugging Face Blog, Nov. 3, 2022. [Online]. Available: https://huggingface.co/blog/fine-tune-whisper
