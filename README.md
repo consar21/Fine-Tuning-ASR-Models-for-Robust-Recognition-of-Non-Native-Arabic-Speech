@@ -211,28 +211,87 @@ The best-performing configurations from each ablation were selected for the fina
 ---
 
 ## Results and Analysis
-| Model | Dataset | WER (%) | CER (%) |
-|-------|---------|---------|---------|
-| Pre-trained | Native Test | XX | XX |
-| Fine-tuned  | Native Test | XX | XX |
+The performance of the refined ASR models is thoroughly examined in this section, along with qualitative transcribing results, comparisons of WER reduction, restrictions, and failure case examples.
 
-- Qualitative results: transcription examples
-- Charts and confusion matrices (add if available)
-- Limitations and failure examples
+###  Qualitative Results: Transcription Examples
+
+Below are sample outputs from the ASR system before and after fine-tuning on non-native Arabic speech:
+
+| **Reference**                             | **Before Fine-Tuning**             | **After Fine-Tuning**              |
+|------------------------------------------|------------------------------------|------------------------------------|
+| وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ         | وما توفيك الا بله                 | **وما توفيقي إلا بالله**           |
+| وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ          | واذا مرضتو فهو يشفيني              | **وإذا مرضت فهو يشفينِ**           |
+| قُلْ هُوَ اللَّهُ أَحَدٌ                   | قل هو الله احدا                    | **قل هو الله أحد**                 |
+| مَنْ عَمِلَ صَالِحًا فَلِنَفْسِهِ         | من عمل صالح فلنفسه                 | **من عمل صالحًا فلنفسه**           |
+
+These results demonstrate better management of:
+- Emphatic and pharyngeal sounds
+- Grammatical structure
+- Non-native pronunciation errors
+
+---
+
+### WER Performance Summary
+
+| **Model**                                  | **Baseline WER** | **Fine-Tuned WER** |
+|--------------------------------------------|------------------|---------------------|
+| Whisper-Small                              | 51.46%           | **0.37%**           |
+| Wav2Vec2 XLS-R-300M (AndrewMcDowell)       | 72.39%           | **2.52%**           |
+| Wav2Vec2 XLS-R-300M (phantomcoder1996)     | 82.60%           | **3.89%**           |
+
+> Whisper-Small achieved the greatest WER reduction, proving its effectiveness with low-resource fine-tuning.
+
+---
+
+###  Confusion Patterns and Errors
+
+Common error types **before fine-tuning** included:
+- Substitution: `/ʕ/ → /ʔ`, `/ħ/ → /h/`
+- Confusion in pharyngeal/uvular sounds
+- Vowel omissions or elongations
+
+
+After fine-tuning:
+- These phoneme patterns were either corrected or preserved.
+- Enhancement in the recognition of MSA and Quranic sentence structures
+
+---
+
+###  Limitations and Failure Cases
+
+####  Failure Examples
+
+| **Reference**                                 | **Output After Fine-Tuning**         | **Issue**                         |
+|----------------------------------------------|--------------------------------------|-----------------------------------|
+| وَاللَّهُ خَيْرٌ وَأَبْقَى                   | والله خير وأبكه                     | Misrecognition of rare word       |
+| فَلْيَتَنَافَسِ الْمُتَنَافِسُونَ             | فلينافس المتنافسون                 | Blending/consonant errors         |
+
+####  Limitations Observed
+
+-  Dataset limited to 6 hours of speech
+-  Noise sensitivity in Whisper outputs
+-  Performance drop with OOV words and dialectal input
+-  Limited generalization to unseen non-native accents
+
 
 ---
 
 ## Discussion
-- Comparison to state-of-the-art systems
-- Insights from fine-tuning on dialect-rich speech
-- Impact on Arabic NLP and accessibility
+
+The project's outcomes demonstrate the great potential of refined ASR models, specifically Wav2Vec2 XLS-R-300M and Whisper-Small, in enhancing the recognition of non-native Arabic speech.  Our refined models show competitive performance when compared to the latest commercial ASR systems, particularly in domain-specific and low-resource settings.  For example, Whisper-Small outperformed lightweight models with a WER of 0.37%, demonstrating that efficient fine-tuning can close the performance gap even in the absence of large amounts of data or computational power.
+
+Fine-tuning on dialect-rich and learner variant speech resulted in significant enhancements in the recognition of emphatic, uvular, and pharyngeal sounds, which are especially difficult for non-native speakers.  Modeling these differences reduced confusion between similar-sounding phonemes and increased transcription accuracy.  When adjusting ASR systems to multilingual or accent diverse situations, these results also confirm the value of real learner input over solely synthetic augmentation.
+
+This approach has wider implications for Arabic NLP and accessibility than just model performance.  It supports Saudi Vision 2030's objectives of advancing Arabic as a worldwide language and expanding access to language learning resources by emphasizing inclusivity in voice technologies.  Additionally, it establishes the foundation for future ASR systems that are sensitive to learners, culturally aware, and able to adjust to a variety of user profiles in practical use scenarios.
 
 ---
-
 ## Conclusion and Future Work
-- Summary of main contributions and findings
-- Areas of improvement: larger datasets, dialect-specific modeling
-- Future directions: code-switching handling, speaker adaptation
+
+ This project showed how well Automatic Speech Recognition (ASR) models, namely Wav2Vec2 XLS-R-300M and Whisper-Small, can be tuned to recognize non-native Arabic speech.  We significantly increased transcription accuracy by using the L2-KSU dataset, which contains real-world pronunciation errors from a wide range of speakers.  Notably, the Whisper-Small model demonstrated improved detection of difficult Arabic phonemes like /ṣ/ (ص), /ḍ/ (ض), /ṭ/ (ط), /q/ (΂), /ʕ/ (ع), and /ħ/ (ح) while achieving a Word Error Rate (WER) as low as 0.37%.  These findings demonstrate how domain-specific fine-tuning can lessen ASR bias toward native speakers and promote learner diversity.
+
+Despite these promising results, there are still potential for development.  The quantity and variety of the training data are among the primary drawbacks.  The robustness of the model could be further improved by enlarging the dataset to include additional speakers from diverse dialect backgrounds and real-world settings.  Furthermore, incorporating dialect-specific modeling techniques could improve the system's ability to differentiate between regional phonetic patterns, which frequently result in recognition failures.  Deployment in unplanned, open-domain environments also requires addressing environmental noise and out-of-vocabulary phrases.
+
+Future research will examine how to incorporate code-switching support, which is a speech characteristic shared by bilingual Arabic speakers.  ASR systems will be more useful for everyday usage if they are modified to accommodate mixed language input, particularly between Arabic and English.  Furthermore, adding speaker adaptation strategies like ongoing learning or embedding-based customisation could improve performance even further for certain users.  In keeping with Saudi Vision 2030, these initiatives not only improve model accuracy but also advance the more general objectives of accessibility and cultural alignment in Arabic NLP.
 
 ---
 ## References
