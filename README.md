@@ -2,7 +2,6 @@
 
 
 
-# Fine-Tuning ASR Models on Native Arabic Speech Data
 
 ## Table of Contents
 - [Overview](#overview)
@@ -24,7 +23,8 @@
 ---
 
 ## Overview
-This project explores fine-tuning automatic speech recognition (ASR) models on native Arabic speech data to improve transcription accuracy for native speakers. The focus is on adapting pre-trained models using domain-specific data and evaluating performance using WER/CER metrics.
+This project investigates the fine-tuning of automatic speech recognition (ASR) models using non-native Arabic speech data to enhance transcription accuracy and improve model robustness in handling mispronunciations. The primary objective is to adapt pre-trained ASR models with domain-specific datasets to better accommodate the linguistic variations of non-native speakers. Performance is evaluated using the Word Error Rate (WER) metric to quantify improvements in recognition accuracy.
+
 
 ---
 
@@ -55,8 +55,8 @@ To bridge this gap, our project focuses on fine-tuning ASR models to improve rob
 ---
 
 ## Project Objectives
-- Fine-tune an ASR model (e.g., Whisper or Wav2Vec2) using native Arabic speech datasets.
-- Evaluate performance improvements using WER and other ASR metrics.
+- Fine-tune an ASR model (e.g., Whisper or Wav2Vec2) using non native Arabic speech datasets.
+- Evaluate performance improvements using WER .
 - Identify bottlenecks in adapting ASR for regional or phonetic variations.
 
 ---
@@ -156,10 +156,10 @@ Whisper is an advanced automatic speech recognition (ASR) system developed by Op
 
 ## Experimental Design
 
-This section outlines the training methodology, manual fine-tuning process, evaluation metrics, and baseline comparisons for our ASR models fine-tuned on native Arabic speech data. Two architectures were explored: Whisper-small and two versions of Wav2Vec2.
+This section outlines the training methodology, manual fine-tuning process, evaluation metrics, and baseline comparisons for our ASR models fine-tuned on native Arabic speech data. Two architectures were explored: Whisper-small and  Wav2Vec2.
 
 ### 1. Training Methodology
-We adopted a manual fine-tuning approach where model training was conducted iteratively based on intermediate results. Each model was fine-tuned using the L2-KSU speech datasets, and evaluated using Word Error Rate (WER).
+We adopted a manual fine-tuning approach where model training was conducted iteratively based on intermediate results. Each model was fine-tuned using the L2-KSU speech dataset, and evaluated using Word Error Rate (WER).
 
 Training steps included:
 - Feature extraction using log-Mel spectrograms .
@@ -175,8 +175,7 @@ Hyperparameters were selected based on validation WER and adjusted manually. The
 | Model Variant                | Epochs | Batch Size | Learning Rate | Notes                          |
 |-----------------------------|--------|------------|----------------|--------------------------------|
 | Whisper-small               | 30     | 16         | 3e-4           |  
-| AndrewMcDowell/wav2vec2-xls-r-300m-arabic         | 30      | 16          | 3e-4           |                
-| phantomcoder1996/wav2vec2-large-xls-r-300m-arabic             | 30      | 16          | 3e-4         |              
+| wav2vec2-xls-r-300m-arabic         | 30      | 16          | 3e-4           |                
 
 > Note: All experiments included logging of **training loss** and **validation WER** for early stopping decisions.
 
@@ -186,8 +185,7 @@ We used the original pre-trained versions as our baselines (no fine-tuning appli
 | Model Name                        | Baseline WER | Fine-Tuned WER |
 |----------------------------------|--------------|----------------|
 | Whisper-small                    | 51.46%       | 0.37%         |
-| AndrewMcDowell/wav2vec2-xls-r-300m-arabic             | 72.39%      | 2.52%        |
-| phantomcoder1996/wav2vec2-large-xls-r-300m-arabic            | 82.60%       | 3.89%         |
+| wav2vec2-xls-r-300m-arabic             | 72.39%      | 2.52%        |
 
 This comparison quantifies the improvement achieved through task-specific training.
 
