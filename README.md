@@ -34,7 +34,7 @@ This project investigates the fine-tuning of automatic speech recognition (ASR) 
 - **Team Member 3**: [Atheer Abdullah Alkhudair] - [2210003371]
 - **Team Member 4**: [Sarah Mohammed Alsulaim] - [2210003352 ]
 -  **Team Member 5**: [Shahad Khalid Alsadah ] - [2210003178]  
-- **Group Number**: [6]
+- **Group Number**: [7]
 
 ---
 
