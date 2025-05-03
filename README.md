@@ -235,7 +235,6 @@ These results demonstrate better management of:
 |--------------------------------------------|------------------|---------------------|
 | Whisper-Small                              | 51.46%           | **0.37%**           |
 | Wav2Vec2 XLS-R-300M (AndrewMcDowell)       | 72.39%           | **2.52%**           |
-| Wav2Vec2 XLS-R-300M (phantomcoder1996)     | 82.60%           | **3.89%**           |
 
 > Whisper-Small achieved the greatest WER reduction, proving its effectiveness with low-resource fine-tuning.
 
